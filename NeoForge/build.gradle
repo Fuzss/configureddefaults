@@ -2,5 +2,13 @@ apply from: "https://raw.githubusercontent.com/Fuzss/modresources/main/gradle/${
 
 dependencies {
     // Puzzles Lib
-    modApi libs.puzzleslib.neoforge
+//    modApi libs.puzzleslib.neoforge
+}
+
+tasks.withType(Jar).configureEach {
+    manifest {
+        attributes([
+                "FMLModType": "LIBRARY"
+        ])
+    }
 }

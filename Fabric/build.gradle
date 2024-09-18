@@ -2,8 +2,8 @@ apply from: "https://raw.githubusercontent.com/Fuzss/modresources/main/gradle/${
 
 dependencies {
     // Fabric Api
-    modApi libs.fabricapi.fabric
+    modRuntimeOnly libs.fabricapi.fabric
 
     // Puzzles Lib
-    modApi libs.puzzleslib.fabric
+//    modApi libs.puzzleslib.fabric
 }
