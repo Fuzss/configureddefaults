@@ -40,6 +40,7 @@ public class CopyDefaultsHandler {
             initialized = true;
             ConfiguredDefaults.LOGGER.info("Applying default files...");
             try {
+                path = path.toAbsolutePath();
                 setupIfNecessary(path);
                 copyFiles(path, mergeOptions);
                 if (mergeOptions) {
