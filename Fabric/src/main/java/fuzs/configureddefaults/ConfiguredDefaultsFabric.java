@@ -9,7 +9,7 @@ import net.fabricmc.loader.api.ModContainer;
 public class ConfiguredDefaultsFabric implements LanguageAdapter {
 
     public ConfiguredDefaultsFabric() {
-        CopyDefaultsHandler.initialize(FabricLoader.getInstance().getGameDir());
+        CopyDefaultsHandler.initialize(FabricLoader.getInstance().getGameDir(), true);
     }
 
     @Override

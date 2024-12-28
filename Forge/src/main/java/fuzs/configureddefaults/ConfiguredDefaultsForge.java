@@ -7,20 +7,13 @@ import net.minecraftforge.forgespi.language.IModLanguageProvider;
 import net.minecraftforge.forgespi.language.ModFileScanData;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class ConfiguredDefaultsForge implements IModLanguageProvider {
-    private static final Consumer<?> EMPTY_CONSUMER = $ -> {
-        // NO-OP
-    };
 
     public ConfiguredDefaultsForge() {
-        CopyDefaultsHandler.initialize(FMLPaths.GAMEDIR.get());
-    }
-
-    @SuppressWarnings("unchecked")
-    private static <T> Consumer<T> emptyConsumer() {
-        return (Consumer<T>) EMPTY_CONSUMER;
+        CopyDefaultsHandler.initialize(FMLPaths.GAMEDIR.get(), true);
     }
 
     @Override
@@ -30,7 +23,7 @@ public class ConfiguredDefaultsForge implements IModLanguageProvider {
 
     @Override
     public Consumer<ModFileScanData> getFileVisitor() {
-        return emptyConsumer();
+        return Function.identity()::apply;
     }
 
     @Override
