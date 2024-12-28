@@ -13,7 +13,7 @@ public class ConfiguredDefaultsLanguageLoader extends BuiltInLanguageLoader {
 
     public ConfiguredDefaultsLanguageLoader() {
         // with Architectury Loom NeoForge is unable to access the common module, so copy everything here
-        CopyDefaultsHandler.initialize(FMLPaths.GAMEDIR.get());
+        CopyDefaultsHandler.initialize(FMLPaths.GAMEDIR.get(), true);
     }
 
     @Override

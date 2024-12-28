@@ -11,7 +11,7 @@ public class ConfiguredDefaultsLanguageAdapter implements LanguageAdapter {
 
     public ConfiguredDefaultsLanguageAdapter() {
         // doesn't work in-dev as the main adapter class is not found, but production is fine, no clue why
-        CopyDefaultsHandler.initialize(FabricLoader.getInstance().getGameDir());
+        CopyDefaultsHandler.initialize(FabricLoader.getInstance().getGameDir(), true);
     }
 
     @Override
