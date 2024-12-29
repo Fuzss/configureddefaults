@@ -43,5 +43,13 @@
     "fabricloader": ">=${minFabricVersion}",
     "minecraft": "${minecraftVersion}",
     "java": ">=17"
+  },
+
+  "custom": {
+    "modmenu": {
+      "badges": [
+        "library"
+      ]
+    }
   }
 }
