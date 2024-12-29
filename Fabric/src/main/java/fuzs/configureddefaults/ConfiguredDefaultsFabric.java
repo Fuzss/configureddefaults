@@ -1,6 +1,7 @@
 package fuzs.configureddefaults;
 
 import fuzs.configureddefaults.handler.CopyDefaultsHandler;
+import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.LanguageAdapter;
 import net.fabricmc.loader.api.LanguageAdapterException;
@@ -9,7 +10,8 @@ import net.fabricmc.loader.api.ModContainer;
 public class ConfiguredDefaultsFabric implements LanguageAdapter {
 
     public ConfiguredDefaultsFabric() {
-        CopyDefaultsHandler.initialize(FabricLoader.getInstance().getGameDir(), true);
+        CopyDefaultsHandler.initialize(FabricLoader.getInstance().getGameDir(),
+                FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT);
     }
 
     @Override
