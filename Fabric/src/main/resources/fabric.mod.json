@@ -39,5 +39,13 @@
     "fabricloader": "*",
     "minecraft": "*",
     "java": ">=8"
+  },
+
+  "custom": {
+    "modmenu": {
+      "badges": [
+        "library"
+      ]
+    }
   }
 }
