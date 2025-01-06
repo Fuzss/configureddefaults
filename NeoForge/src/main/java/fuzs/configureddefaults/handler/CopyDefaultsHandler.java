@@ -60,14 +60,14 @@ public class CopyDefaultsHandler {
                         relativizeAndNormalize(gameParentPath, defaultPresetsPath));
                 return;
             } else {
-                ConfiguredDefaults.LOGGER.info("Successfully created fresh '{}' directory",
+                ConfiguredDefaults.LOGGER.info("Created fresh '{}' directory",
                         relativizeAndNormalize(gameParentPath, defaultPresetsPath));
             }
         }
         Path readmePath = defaultPresetsPath.resolve(README_FILE);
         if (Files.notExists(readmePath)) {
             Files.write(readmePath, README_CONTENTS.getBytes());
-            ConfiguredDefaults.LOGGER.info("Successfully created fresh '{}' file",
+            ConfiguredDefaults.LOGGER.info("Created fresh '{}' file",
                     relativizeAndNormalize(gameParentPath, readmePath));
         }
     }
@@ -85,7 +85,7 @@ public class CopyDefaultsHandler {
                         try {
                             // we do not need to handle creating parent directories as the file tree is traversed depth-first
                             Files.copy(sourcePath, targetPath);
-                            ConfiguredDefaults.LOGGER.info("Successfully copied '{}' to '{}'",
+                            ConfiguredDefaults.LOGGER.info("Copied '{}' to '{}'",
                                     relativizeAndNormalize(gameParentPath, sourcePath),
                                     relativizeAndNormalize(gameParentPath, targetPath));
                         } catch (IOException e) {
@@ -95,7 +95,9 @@ public class CopyDefaultsHandler {
                         }
                     }
                 } catch (Throwable throwable) {
-                    ConfiguredDefaults.LOGGER.error("Oh no!", throwable);
+                    ConfiguredDefaults.LOGGER.error("Failed to copy '{}'",
+                            relativizeAndNormalize(gameParentPath, sourcePath),
+                            throwable);
                 }
             }
         });
@@ -116,22 +118,25 @@ public class CopyDefaultsHandler {
     private static void mergeOptions(Path path) {
         Map<String, String> options = new LinkedHashMap<>();
         Path optionsPath = path.resolve(OPTIONS_FILE);
-        loadOptions(optionsPath, options);
+        loadOptions(optionsPath, options, false);
         int size = options.size();
         // compare size as we only allow adding new options via Map::putIfAbsent,
         // so only if the size value changes we must rewrite the file
-        if (loadOptions(path.resolve(DEFAULTS_DIRECTORY).resolve(OPTIONS_FILE), options) && options.size() != size) {
+        if (loadOptions(path.resolve(DEFAULTS_DIRECTORY).resolve(OPTIONS_FILE), options, true) &&
+                options.size() != size) {
             saveOptions(optionsPath, options);
         }
     }
 
-    private static boolean loadOptions(Path path, Map<String, String> options) {
+    private static boolean loadOptions(Path path, Map<String, String> options, boolean reportOption) {
         if (Files.exists(path)) {
             try (BufferedReader bufferedReader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
                 bufferedReader.lines().forEach((String string) -> {
                     try {
-                        Iterator<String> iterator = Arrays.asList(string.split(":")).iterator();
-                        options.putIfAbsent(iterator.next(), iterator.next());
+                        Iterator<String> iterator = Arrays.asList(string.split(":", 2)).iterator();
+                        if (options.putIfAbsent(iterator.next(), iterator.next()) == null && reportOption) {
+                            ConfiguredDefaults.LOGGER.info("Setting new option: {}", string);
+                        }
                     } catch (Exception exception) {
                         ConfiguredDefaults.LOGGER.warn("Skipping bad option: {}", string);
                     }
