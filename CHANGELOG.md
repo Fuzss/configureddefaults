@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog].
 
+## [v8.0.4-1.20.1] - 2025-01-06
+### Fixed
+- Fix custom `options.txt` handling leading to an invalid file due to some strings being parsed incorrectly
+
 ## [v8.0.3-1.20.1] - 2024-12-29
 ### Fixed
 - Attempt fixing dedicated server crash on start-up for Fabric
