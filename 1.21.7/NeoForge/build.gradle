@@ -1,0 +1,20 @@
+apply from: "https://raw.githubusercontent.com/Fuzss/modresources/main/gradle/${libs.versions.minecraft.get()}/neoforge.gradle"
+
+dependencies {
+    // Puzzles Lib
+//    modApi libs.puzzleslib.neoforge
+}
+
+tasks.withType(Jar).configureEach {
+    manifest {
+        attributes([
+                "FMLModType": "LIBRARY"
+        ])
+    }
+}
+
+tasks.withType(net.fabricmc.loom.task.AbstractRunTask).configureEach {
+    doFirst {
+        patchLaunchCfg()
+    }
+}
