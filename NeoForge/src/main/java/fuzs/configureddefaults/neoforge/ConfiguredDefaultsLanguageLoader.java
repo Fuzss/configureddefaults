@@ -13,7 +13,6 @@ import net.neoforged.neoforgespi.language.ModFileScanData;
 public class ConfiguredDefaultsLanguageLoader extends BuiltInLanguageLoader {
 
     public ConfiguredDefaultsLanguageLoader() {
-        // with Architectury Loom NeoForge is unable to access the common module, so copy everything here
         CopyDefaultsHandler.initialize(FMLLoader.getCurrent().getGameDir(), FMLEnvironment.getDist().isClient());
     }
 
