@@ -1,0 +1,38 @@
+{
+    "mod": {
+        "id": "configureddefaults",
+        "group": "fuzs.configureddefaults",
+        "name": "Configured Defaults",
+        "version": "21.11.0",
+        "authors": [
+            "Fuzs"
+        ],
+        "description": "Allows for providing defaults for files absent in .minecraft like configs. A quintessential modpack utility.",
+        "license": "MPL-2.0"
+    },
+    "dependencies": [],
+    "links": [
+        {
+            "name": "github",
+            "slug": "configureddefaults"
+        },
+        {
+            "name": "curseforge",
+            "slug": "configured-defaults",
+            "id": "930131"
+        },
+        {
+            "name": "modrinth",
+            "slug": "configured-defaults",
+            "id": "SISoSFPP"
+        }
+    ],
+    "environments": {
+        "client": "optional",
+        "server": "optional"
+    },
+    "platforms": [
+        "fabric",
+        "neoforge"
+    ]
+}
