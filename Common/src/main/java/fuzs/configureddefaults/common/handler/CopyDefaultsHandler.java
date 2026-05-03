@@ -1,6 +1,6 @@
-package fuzs.configureddefaults.handler;
+package fuzs.configureddefaults.common.handler;
 
-import fuzs.configureddefaults.ConfiguredDefaults;
+import fuzs.configureddefaults.common.ConfiguredDefaults;
 
 import java.io.BufferedReader;
 import java.io.IOException;

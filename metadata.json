@@ -1,9 +1,10 @@
 {
+    "minecraft": "26.1.2",
     "mod": {
         "id": "configureddefaults",
         "group": "fuzs.configureddefaults",
         "name": "Configured Defaults",
-        "version": "21.11.0",
+        "version": "26.1.0",
         "authors": [
             "Fuzs"
         ],
@@ -13,13 +14,13 @@
     "dependencies": [],
     "links": [
         {
-            "name": "github",
-            "slug": "configureddefaults"
-        },
-        {
             "name": "curseforge",
             "slug": "configured-defaults",
             "id": "930131"
+        },
+        {
+            "name": "github",
+            "slug": "configured-defaults"
         },
         {
             "name": "modrinth",

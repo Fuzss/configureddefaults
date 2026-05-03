@@ -1,7 +1,7 @@
 package fuzs.configureddefaults.fabric;
 
-import fuzs.configureddefaults.ConfiguredDefaults;
-import fuzs.configureddefaults.handler.CopyDefaultsHandler;
+import fuzs.configureddefaults.common.ConfiguredDefaults;
+import fuzs.configureddefaults.common.handler.CopyDefaultsHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.LanguageAdapter;

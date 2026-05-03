@@ -1,7 +1,7 @@
 package fuzs.configureddefaults.neoforge;
 
-import fuzs.configureddefaults.ConfiguredDefaults;
-import fuzs.configureddefaults.handler.CopyDefaultsHandler;
+import fuzs.configureddefaults.common.ConfiguredDefaults;
+import fuzs.configureddefaults.common.handler.CopyDefaultsHandler;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.ModLoadingException;
 import net.neoforged.fml.loading.BuiltInLanguageLoader;

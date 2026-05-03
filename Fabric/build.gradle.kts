@@ -1,3 +1,6 @@
+import fuzs.multiloader.extension.mod
+import fuzs.multiloader.extension.packageName
+
 plugins {
     id("fuzs.multiloader.multiloader-convention-plugins-fabric")
 }
@@ -12,7 +15,7 @@ multiloader {
         json {
             languageAdapters.put(
                 project.mod.id,
-                "${project.group}.${project.name.lowercase()}.ConfiguredDefaultsLanguageAdapter"
+                "${project.group}.${project.packageName}.ConfiguredDefaultsLanguageAdapter"
             )
         }
     }
