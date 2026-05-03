@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    modLocalRuntime(libs.fabricapi.fabric)
+    modLocalRuntime(sharedLibs.fabricapi.fabric)
 }
 
 multiloader {
