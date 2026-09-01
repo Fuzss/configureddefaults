@@ -6,11 +6,17 @@
     "26.1.x": "maintained",
     "26.2.x": "primary"
   },
-  "properties": {
-    "distributions.curseforge.id": "930131",
-    "distributions.curseforge.slug": "configured-defaults",
-    "distributions.github.slug": "configured-defaults",
-    "distributions.modrinth.id": "SISoSFPP",
-    "distributions.modrinth.slug": "configured-defaults"
+  "distributions": {
+    "curseforge": {
+      "id": "930131",
+      "slug": "configured-defaults"
+    },
+    "github": {
+      "slug": "configured-defaults"
+    },
+    "modrinth": {
+      "id": "SISoSFPP",
+      "slug": "configured-defaults"
+    }
   }
 }
